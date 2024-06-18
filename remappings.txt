@@ -1,5 +1,4 @@
 @openzeppelin/=lib/zora-protocol/node_modules/@openzeppelin/contracts/
-@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
 @openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/
 @zoralabs/openzeppelin-contracts-upgradeable/=lib/zora-protocol/node_modules/@zoralabs/openzeppelin-contracts-upgradeable/
 @zoralabs/protocol-rewards/src/=lib/zora-protocol/node_modules/@zoralabs/protocol-rewards/src/
@@ -8,7 +7,6 @@ ds-test/=lib/forge-std/lib/ds-test/src/
 erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/
 forge-std/=lib/forge-std/src/
 mint/=lib/zora-protocol/_imagine/mint/
-openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/
 openzeppelin-contracts/=lib/openzeppelin-contracts/
 openzeppelin/=lib/openzeppelin-contracts/contracts/
 solady/=lib/zora-protocol/node_modules/solady/src/
