@@ -1,0 +1,43 @@
+name: coverage
+
+on: push
+
+env:
+  FOUNDRY_PROFILE: ci
+
+jobs:
+  check:
+    strategy:
+      fail-fast: true
+
+    name: Check solidity test coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install node deps and founry
+        uses: ./.github/actions/setup_deps
+
+      - name: Run Forge coverage
+        run: yarn run coverage
+        id: build
+
+      - name: Setup LCOV
+        uses: hrishikesh-kadam/setup-lcov@v1
+
+      - name: Filter files to ignore
+        run: |
+          lcov --rc lcov_branch_coverage=1 \
+          --remove lcov.info \
+          --output-file lcov.info "*node_modules*" "*test*" "*script*" "*DeploymentConfig*" "*Redeem*" "*deployment*"
+
+      - name: Report code coverage
+        uses: zgosalvez/github-actions-report-lcov@v2
+        with:
+          coverage-files: lcov.info
+          minimum-coverage: 89
+          artifact-name: code-coverage-report
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          working-directory: ./
