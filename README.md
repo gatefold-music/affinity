@@ -2,7 +2,7 @@
 
 - Must have forge installed
 
-- add values ot the env file
+- add values to the env file
 
 - source .env
 
