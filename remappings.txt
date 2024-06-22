@@ -1,5 +1,4 @@
 @openzeppelin/=lib/zora-protocol/node_modules/@openzeppelin/contracts/
-@openzeppelin/contracts/=lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/contracts/
 @zoralabs/openzeppelin-contracts-upgradeable/=lib/zora-protocol/node_modules/@zoralabs/openzeppelin-contracts-upgradeable/
 @zoralabs/protocol-rewards/src/=lib/zora-protocol/node_modules/@zoralabs/protocol-rewards/src/
 _imagine/=lib/zora-protocol/_imagine/
