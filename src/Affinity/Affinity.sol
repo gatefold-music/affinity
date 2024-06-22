@@ -24,18 +24,13 @@ contract Affinity is IAffinity, Ownable {
         return (tokenAddress, tokenIds[_crateAddress]);
     }
 
-    function setUpToken(address _crateAddress, string memory _crateInfo, uint256 _maxSupply, address _adminAddress) public onlyOwner {
+    function assign(address _crateAddress, uint256 _tokenId) public onlyOwner {
         require(_crateAddress != address(0), "No Zero address");
-        uint256 newTokenId = ZoraCreator1155Impl(tokenAddress).setupNewTokenWithCreateReferral(_crateInfo, _maxSupply, _adminAddress);
+        require(_tokenId > 0, "No Zero token ID");
+        require(tokenIds[_crateAddress] == 0, "ID already assigned");
+        require(addresses[_tokenId] == address(0), "ID already has address");
 
-        tokenIds[_crateAddress] = newTokenId;
-        addresses[newTokenId] = _crateAddress;
-    }
-
-    function updateTokenUri(address _crateAddress, string memory _crateInfo) public onlyOwner {
-        require(_crateAddress != address(0), "No Zero address");
-        if (tokenIds[_crateAddress] == 0) revert TokenIdNonExistent();
-
-        ZoraCreator1155Impl(tokenAddress).updateTokenURI(tokenIds[_crateAddress], _crateInfo);
+        tokenIds[_crateAddress] = _tokenId;
+        addresses[_tokenId] = _crateAddress;
     }
 }
